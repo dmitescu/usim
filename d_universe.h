@@ -1,35 +1,56 @@
 #ifndef _D_UNIVERSE_H
 #define _D_UNIVERSE_H
 
-struct t_vector{
-long double x=0,y=0;
+class t_vector{
+ public:
+  long double x,y;
+
+  t_vector(long double, long double);
 };
 
-struct p_object{
-long double x,y;
-long double mass;
-t_vector velocity;
-t_vector acceleration;
+class p_object{
+ public:
+  long double x,y;
+  long double mass;
+  t_vector velocity;
+  t_vector acceleration;
+
+  p_object(long double, long double, long double);
 };
 
 
-struct sys_obj{
-p_object obj;
-sys_obj *next=0;
-sys_obj *prev=0;
+class sys_obj{
+ public:
+  p_object obj;
+  sys_obj *next;
+  sys_obj *prev;
+
+  sys_obj(p_object, sys_obj*, sys_obj*);
 };
 
-struct _tuniverse{
-sys_obj *start=0;
-sys_obj *stop=0;
-unsigned int object_count=0;
+class _tuniverse{
+ public:
+  sys_obj *start;
+  sys_obj *stop;
+  unsigned int object_count;
+
+  _tuniverse(sys_obj*, sys_obj*, unsigned int);
+  ~_tuniverse();
+
+  //Object creation
+  void add_object(p_object a);
+  void delete_object(sys_obj *a);
+
+  //Processing
+  void step(float dt);
+  
+ private:
+  t_vector get_accel(sys_obj *a);
+  void collide_object(sys_obj *a, sys_obj *b);
 };
 
-void add_object(p_object a, _tuniverse *tu);
-void delete_object(sys_obj *a, _tuniverse *tu);
 
 
-void step(float dt, _tuniverse *tu);
-void collide_object(sys_obj *a, sys_obj *b, _tuniverse *tu);
+
 
 #endif

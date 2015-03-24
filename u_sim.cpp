@@ -5,8 +5,8 @@
 using namespace std;
 
 int main(){
-  _tuniverse univers;
-  p_object _temp_object;
+  _tuniverse univers(NULL, NULL, 0);
+  p_object _temp_object(0,0,1);
   char _temp_string[30];
   int i=0;
   sys_obj *_c;
@@ -28,7 +28,8 @@ int main(){
       _temp_object.velocity.x >>
       _temp_object.velocity.y;
 
-    add_object(_temp_object,&univers);i--;
+    univers.add_object(_temp_object);
+    i--;
   }
 
   cout << "Done loading file.\n";
@@ -48,7 +49,7 @@ int main(){
 
   fout << univers.object_count << ' ' << time<< ' ' << tstep <<'\n';
   while(time>0){
-    step(tstep, &univers);
+    univers.step(tstep);
 
     _c=univers.start;
     for(i=0;i<univers.object_count;i++){
