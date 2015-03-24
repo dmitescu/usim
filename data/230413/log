@@ -1,0 +1,5 @@
+- done writing EULER's method of integrating
+- applied it ONLY to acceleration
+- the simulation at 23:16 is NON-INTEGRATED
+- the plot for the trajectory is plausible but still questionable
+- STRANGE HOOK OCCURING RIGHT AFTER SIMULATION INITIATION!
