@@ -31,9 +31,8 @@ steps are performed dt by dt, until the time distance is reached.
 The smaller the dts are, the higher precision the simulation will have.
 Each step, all the forces are added, and the acceleration for each object is
 calculated (by diving the mass). Since the naive implementation (Euler's algorithm),
-isn't precise and errors sum up quickly, Runge Kutta algorithm is used to
-compute the velocity (acceleration's derivative), and it is applied again on the velocity,
-thus resulting the distance travelled. This is repeated for every point in the dataset,
-resulting a step. After all steps are completed, the data is written in the file,
+isn't precise and errors sum up quickly, some optimisations will have to be implemented.
+This is repeated for every point in the dataset, resulting a step.
+After all steps are completed, the data is written in the file,
 and can be plotted. If a particle moves too far away, it is deleted (we assume it will
 never get back in orbits).
