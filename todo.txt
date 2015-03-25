@@ -1,6 +1,6 @@
 USIM
 =======
 
-1. Fully implement and debug the Runge-kutta algorithm
+1. Fully implement optimisations and tricks for eliminating errors.
 2. Implement plotting using gnuplot (dummy .cpp file already present)
 3. Simulate the datasets using a separate simulator and check the differences
