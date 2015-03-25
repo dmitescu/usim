@@ -3,10 +3,11 @@ USIM
 
 Project structure:
 
-./        - main .cpp and .h files
-./data    - raw data and simulated data
-./plotSim - matlab script to plot simulated data
-./data/.. - depending on the date simulated, I make a new
+./ 	          - main .cpp and .h files
+./data 	          - raw data and simulated data
+./data/data.dat	  - raw data
+./plotSim	  - matlab script to plot simulated data
+./data/..	  - depending on the date simulated, I make a new
             folder which contains graphs and data
 
 Project files:
@@ -18,6 +19,7 @@ f_processing.cpp - Definitions of functions on universes
                    (processing, stepping, etc)
 
 Program description:
+-------------------
 
 Classes are created for a vector, an object, a container for an object
 (AKA a linked list), and an universe represents such a linked list
@@ -35,4 +37,5 @@ isn't precise and errors sum up quickly, some optimisations will have to be impl
 This is repeated for every point in the dataset, resulting a step.
 After all steps are completed, the data is written in the file,
 and can be plotted. If a particle moves too far away, it is deleted (we assume it will
-never get back in orbits).
+never get back in orbits). Also, if two particles come too close, they collide
+(with a perfectly elastic collision).
