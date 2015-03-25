@@ -36,11 +36,12 @@ _tuniverse::_tuniverse(sys_obj* ns=NULL, sys_obj* ne=NULL,
   object_count=nc;
 }
 
+
 //Destructors:
 _tuniverse::~_tuniverse(){
   while(object_count!=0)
     delete_object(start);
-}
+    }
 
 //Functions:
 //Adding an object
