@@ -1,0 +1,30 @@
+USIM
+=======
+
+VECTOR:
+-------
+t_vector(long double, long double);
+The first parameter x, the second is y.
+
+OBJECT:
+-------
+p_object(long double, long double, long double);
+The first param. is x, then y, then the mass.
+Except for these three variables,
+it also has 2 vectors: velocity and acceleration.
+
+
+MAIN UNIVERSE STRUCTURE:
+-------
+sys_obj(p_object, sys_obj*, sys_obj*);
+
+An elements must form a double linked list.
+The first parameter is the object itself,
+the second is the next elem., and the third is the prev element.
+
+_tuniverse(sys_obj*, sys_obj*, unsigned int);
+
+The universe is the linked list itself.
+The first param este the starting element, and
+the second param is the ending element.
+The third parameter is the object count.
