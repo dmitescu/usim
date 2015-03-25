@@ -41,7 +41,7 @@ _tuniverse::_tuniverse(sys_obj* ns=NULL, sys_obj* ne=NULL,
 _tuniverse::~_tuniverse(){
   while(object_count!=0)
     delete_object(start);
-    }
+}
 
 //Functions:
 //Adding an object
@@ -63,8 +63,18 @@ void _tuniverse::add_object(p_object a)
 
 //deleting an object
 void _tuniverse::delete_object(sys_obj *a){
-  object_count--;
-  a->next->prev=a->prev;
-  a->prev->next=a->next;
-  delete a;
+  if(object_count==1){
+    object_count--;
+    delete a;
+  }
+  else{
+    object_count--;
+    if(a==start)
+      start=a->next;
+    if(a==stop)
+      stop=a->prev;
+    a->next->prev=a->prev;
+    a->prev->next=a->next;
+    delete a;
+  }
 }
